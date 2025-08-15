@@ -8,6 +8,8 @@ import {renderPredictions} from "@/utils/render-predictions";
 
 let detectInterval;
 
+
+
 const ObjectDetection = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -65,6 +67,7 @@ const ObjectDetection = () => {
     showmyVideo();
   }, []);
 
+
   return (
     <div className="mt-8">
       {isLoading ? (
@@ -72,11 +75,15 @@ const ObjectDetection = () => {
       ) : (
         <div className="relative flex justify-center items-center gradient p-1.5 rounded-md">
           {/* webcam */}
-          <Webcam
-            ref={webcamRef}
-            className="rounded-md w-full lg:h-[720px]"
-            muted
-          />
+         <Webcam
+  ref={webcamRef}
+  className="rounded-md w-full lg:h-[720px]"
+  muted
+  videoConstraints={{
+    facingMode: { exact: "environment" }, // Forces back camera
+  }}
+/>
+
           {/* canvas */}
           <canvas
             ref={canvasRef}
