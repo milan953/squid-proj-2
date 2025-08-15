@@ -32,12 +32,12 @@ export const renderPredictions = (predictions, ctx) => {
     ctx.fillText(prediction.class, x, y);
 
     if (isPerson) {
-      playAudio();
+      // playAudio();
     }
   });
 };
 
-const playAudio = throttle(() => {
-  const audio = new Audio("/pols-aagyi-pols.mp3");
-  audio.play();
-}, 2000);
+// const playAudio = throttle(() => {
+//   const audio = new Audio("/pols-aagyi-pols.mp3");
+//   audio.play();
+// }, 2000);
